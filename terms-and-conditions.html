@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions - Manifest Crystals of Life</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #FFF5F6;
+    --bg-gradient: linear-gradient(135deg, #FFF5F6 0%, #FFFFFF 50%, #FFF0F2 100%);
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-solid: #FFFFFF;
+    --white: #FFFFFF;
+    --rose-light: #F7D6DC;
+    --rose-accent: #D47A8F;
+    --rose-deep: #A85A6B;
+    --rose-dark: #6E333F;
+    --gold: #D4AF37;
+    --ink: #3C2429;
+    --ink-soft: #7A5C62;
+    --line: rgba(212, 122, 143, 0.16);
+    --line-glow: rgba(212, 122, 143, 0.28);
+    --shadow: 0 20px 40px -10px rgba(168, 86, 102, 0.12);
+    --shadow-soft: 0 8px 24px rgba(168, 86, 102, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-base);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(168, 86, 102, 0.15));
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.25s ease;
+  }
+  .nav-link:hover {
+    color: var(--rose-deep);
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--surface-solid);
+    border: 1px solid var(--line-glow);
+    color: var(--rose-dark);
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-back:hover {
+    background: var(--rose-accent);
+    color: #fff;
+    border-color: var(--rose-accent);
+    transform: translateY(-1px);
+  }
+
+  /* Hero */
+  .policy-hero {
+    padding: 50px 0 35px;
+    text-align: center;
+    position: relative;
+  }
+  .policy-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .policy-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--rose-dark);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  .policy-meta {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-solid);
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* Quick Nav Bar */
+  .toc-bar {
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 20px;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+  .toc-bar::-webkit-scrollbar { height: 4px; }
+  .toc-bar::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 4px; }
+  .toc-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rose-dark);
+    flex-shrink: 0;
+  }
+  .toc-pill {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  .toc-pill:hover {
+    background: var(--rose-accent);
+    color: #fff;
+    border-color: var(--rose-accent);
+  }
+
+  /* Main Card */
+  .policy-card {
+    background: var(--surface-solid);
+    border-radius: 24px;
+    border: 1px solid var(--line-glow);
+    box-shadow: var(--shadow);
+    padding: 48px;
+    margin-bottom: 60px;
+  }
+
+  .policy-section {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+  }
+  .policy-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .sec-num {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--rose-accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .sec-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: var(--rose-dark);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .policy-section p {
+    color: var(--ink);
+    font-size: 0.96rem;
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+  .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+  .policy-section ul, .policy-section ol {
+    margin: 14px 0 16px 24px;
+    color: var(--ink);
+    font-size: 0.94rem;
+  }
+  .policy-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .policy-section strong {
+    color: var(--rose-dark);
+    font-weight: 600;
+  }
+
+  /* Callout box */
+  .callout-box {
+    background: linear-gradient(135deg, rgba(255, 245, 247, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-left: 4px solid var(--rose-accent);
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .callout-box.warning {
+    border-left-color: var(--gold);
+    background: linear-gradient(135deg, rgba(255, 253, 240, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .callout-box h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--rose-dark);
+    margin-bottom: 6px;
+  }
+  .callout-box p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  /* Grid details */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .data-card {
+    background: var(--bg-base);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .data-card h6 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--rose-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .data-card p {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Table styling */
+  .policy-table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .policy-table th {
+    background: #FFF0F3;
+    color: var(--rose-dark);
+    padding: 12px 16px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--line);
+  }
+  .policy-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .policy-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Footer */
+  footer {
+    background: #FFFFFF;
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    margin-top: auto;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-info {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .raw-canvas-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #FFF5F7;
+    border: 1px solid var(--line);
+    transition: all 0.25s ease;
+  }
+  .raw-canvas-credit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+  .raw-canvas-credit img {
+    height: 18px;
+    width: auto;
+  }
+  .raw-canvas-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .policy-title { font-size: 2.1rem; }
+    .policy-card { padding: 26px 20px; border-radius: 18px; }
+    .sec-title { font-size: 1.35rem; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="website 1.html" class="brand-group" title="Back to Manifest Sanctuary">
+        <img src="logo.png" alt="Manifest Crystals of Life" class="brand-logo">
+      </a>
+      <div class="nav-links">
+        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+        <a href="website 1.html" class="btn-back">
+          <span>← Back to Studio Sanctuary</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Container -->
+<main class="wrap">
+  <!-- Hero -->
+  <section class="policy-hero">
+    <span class="policy-eyebrow">✦ Studio Operational Standards</span>
+    <h1 class="policy-title">Terms & Conditions</h1>
+    <div class="policy-meta">
+      <span class="meta-badge">Effective Date: September 2026</span>
+      <span class="meta-badge">Governing Law: Republic of India</span>
+      <span class="meta-badge">Pricing Currency: Indian Rupee (₹ INR)</span>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <nav class="toc-bar" aria-label="Terms sections">
+    <span class="toc-label">Navigate:</span>
+    <a href="#sec-agreement" class="toc-pill">1. Agreement to Terms</a>
+    <a href="#sec-accounts" class="toc-pill">2. Accounts & Phone OTP</a>
+    <a href="#sec-orders" class="toc-pill">3. Orders & Pricing</a>
+    <a href="#sec-customizer" class="toc-pill">4. 3D Customizer Specs</a>
+    <a href="#sec-disclaimer" class="toc-pill">5. Metaphysical & Mineral Disclaimer</a>
+    <a href="#sec-payments" class="toc-pill">6. Payments & Tokenization</a>
+    <a href="#sec-shipping" class="toc-pill">7. Shipping & Inspection</a>
+    <a href="#sec-returns" class="toc-pill">8. 14-Day Returns & Custom Policy</a>
+    <a href="#sec-ip" class="toc-pill">9. Intellectual Property & RAW CANVAS</a>
+    <a href="#sec-liability" class="toc-pill">10. Limitation of Liability</a>
+    <a href="#sec-law" class="toc-pill">11. Governing Law & Jurisdiction</a>
+    <a href="#sec-concierge" class="toc-pill">12. Studio Concierge</a>
+  </nav>
+
+  <!-- Card Body -->
+  <article class="policy-card">
+
+    <!-- 1. Agreement to Terms -->
+    <section class="policy-section" id="sec-agreement">
+      <span class="sec-num">Section 01</span>
+      <h2 class="sec-title">Agreement & Studio Acceptance</h2>
+      <p>
+        These Terms & Conditions constitute a legally binding agreement between you ("Client", "User", or "Collector") and <strong>Manifest Crystals of Life</strong> (operating under <em>Manifest Studios</em>, engineered and co-designed by <strong>RAW CANVAS</strong>). By browsing the website, accessing the interactive 3D bracelet customizer, registering an account via Google, email, or mobile phone OTP, or completing a transactional purchase, you confirm that you have read, understood, and agreed to be bound by these Terms.
+      </p>
+      <p>
+        If you do not agree to these Terms in their entirety, you must discontinue the use of our digital sanctuary and services immediately.
+      </p>
+    </section>
+
+    <!-- 2. Accounts & Phone OTP -->
+    <section class="policy-section" id="sec-accounts">
+      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Account Registration, Security & OTP Verification</h2>
+      <p>
+        To preserve the integrity of physical reservations and bespoke craftsmanship, transactional checkout is gated behind authenticated client profiles:
+      </p>
+      <ul>
+        <li><strong>Eligibility:</strong> You must be at least 18 years of age or possess verified legal guardian authorization to enter into commercial transactions on this platform.</li>
+        <li><strong>Authentication Channels:</strong> Accounts may be created using Google OAuth authentication, verified direct Email and Password, or Mobile Phone Number verified via a 4-digit SMS One-Time Password (OTP).</li>
+        <li><strong>Account Confidentiality:</strong> You are solely responsible for maintaining the confidentiality of your credentials and devices. Any activity originating from your authenticated session or phone OTP verification will be attributed to your profile.</li>
+        <li><strong>Accurate Information:</strong> You agree to provide true, current, and complete delivery and identity details. Manifest Studios reserves the right to suspend or terminate accounts that utilize fraudulent telephone numbers or falsified payment coordinates.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Orders & Pricing -->
+    <section class="policy-section" id="sec-orders">
+      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Orders, Pricing & Digital Receipts</h2>
+      <p>
+        All orders placed through our digital storefront represent an offer to purchase our physical gemstone pieces:
+      </p>
+      <ul>
+        <li><strong>Pricing & Currency:</strong> All prices are displayed and billed in Indian Rupees (₹ INR), inclusive of applicable goods and services taxation (GST). International orders may be subject to local import tariffs, customs duties, or handling surcharges assessed by the destination jurisdiction, which remain the collector's sole responsibility.</li>
+        <li><strong>Order Acceptance:</strong> Receipt of an electronic checkout confirmation does not signify our final legal acceptance. We reserve the right to limit order quantities or cancel reservations if natural mineral stock exhibits structural anomalies during pre-stringing inspection.</li>
+        <li><strong>Digital Receipt Generation:</strong> Upon successful order authorization, our system issues a unique, immutable studio ritual receipt identifier (e.g., <code>MANIFEST-XXXXXX</code>) accessible directly within your Studio Profile.</li>
+      </ul>
+    </section>
+
+    <!-- 4. 3D Customizer Specs -->
+    <section class="policy-section" id="sec-customizer">
+      <span class="sec-num">Section 04</span>
+      <h2 class="sec-title">Bespoke 3D Bracelet Customizer & Sizing Map</h2>
+      <p>
+        Our interactive 3D Customizer allows collectors to curate customized mineral arrays, stone pairings, and metallic spacer accents. When submitting a custom order, the following craft specifications govern the commission:
+      </p>
+      
+      <div class="policy-table-wrap">
+        <table class="policy-table">
+          <thead>
+            <tr>
+              <th>Wrist Size Category</th>
+              <th>Inner Circumference</th>
+              <th>Approximate Bead Count (8mm - 10mm)</th>
+              <th>Fit Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Small (S)</strong></td>
+              <td>15.0 cm – 16.5 cm</td>
+              <td>18 – 20 natural stones</td>
+              <td>Snug & tailored for delicate wrists</td>
+            </tr>
+            <tr>
+              <td><strong>Medium (M) - Standard</strong></td>
+              <td>17.0 cm – 18.5 cm</td>
+              <td>21 – 23 natural stones</td>
+              <td>Universal comfort balance</td>
+            </tr>
+            <tr>
+              <td><strong>Large (L)</strong></td>
+              <td>19.0 cm – 20.5 cm</td>
+              <td>24 – 26 natural stones</td>
+              <td>Relaxed drape for broader wrists</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Craftsmanship Tolerances:</strong> Because our pieces are strung by hand using natural elastic high-tensile cords and genuine polished mineral spheres, slight millimeter variations (±2-3mm) are inherent to authentic lapidary construction and do not constitute manufacturing defects.
+      </p>
+    </section>
+
+    <!-- 5. Metaphysical & Mineral Disclaimer -->
+    <section class="policy-section" id="sec-disclaimer">
+      <span class="sec-num">Section 05</span>
+      <h2 class="sec-title">Metaphysical Intention & Natural Mineral Disclaimers</h2>
+      
+      <div class="callout-box warning">
+        <h5>Crucial Wellness & Metaphysical Advisory</h5>
+        <p>
+          All descriptions, gemstone lore, metaphysical properties, chakra associations, and energetic intention mappings (including but not limited to references to calming anxiety, attracting prosperity, fostering self-love, or energetic protection) are rooted in spiritual traditions, folklore, and subjective wellness philosophy. <strong>These pieces and statements are not intended to diagnose, treat, cure, or prevent any medical, physical, or psychiatric condition.</strong> Manifest jewelry should never substitute for certified professional medical care, pharmacological treatment, or psychiatric therapy.
+        </p>
+      </div>
+
+      <p>
+        <strong>Natural Mineral Variance Disclosure:</strong> Manifest Crystals of Life guarantees authentic geological origin. Consequently, genuine earth minerals (Amethyst, Rose Quartz, Citrine, Black Tourmaline, Rhodochrosite, Lapis Lazuli, etc.) exhibit natural variations in color saturation, striations, internal mineral veining, crystalline fractures, and opacity. No two bracelets are identical. Images on our digital platform represent authentic samples; variations between screen color calibrations and physical stones are a natural mark of authenticity.
+      </p>
+    </section>
+
+    <!-- 6. Payments & Tokenization -->
+    <section class="policy-section" id="sec-payments">
+      <span class="sec-num">Section 06</span>
+      <h2 class="sec-title">Payment Terms & Gateway Security</h2>
+      <p>
+        We accept authorized electronic payment methods including Credit Cards (Visa, MasterCard, American Express), RuPay, Unified Payments Interface (UPI via GPay, PhonePe, Paytm), and major Indian Net Banking institutions:
+      </p>
+      <ul>
+        <li>You warrant that you are the lawful authorized holder of the payment instrument utilized.</li>
+        <li>Payments are processed using bank-grade tokenization tunnels. Manifest does not store credit card numbers or CVV codes.</li>
+        <li>If an issuing bank or payment gateway declines transaction authorization, Manifest Studios is not liable for reservation expiration or dispatch delays.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Shipping & Inspection -->
+    <section class="policy-section" id="sec-shipping">
+      <span class="sec-num">Section 07</span>
+      <h2 class="sec-title">Small-Batch Hand-Inspection & Shipping Policies</h2>
+      <p>
+        Every Manifest bracelet is strung by hand, knotted with structural integrity, and subjected to a multi-point studio inspection prior to boxing in our eco-luxury protective packaging:
+      </p>
+      <div class="data-grid">
+        <div class="data-card">
+          <h6>✦ Handcrafting Window</h6>
+          <p>Standard pieces dispatch within 24–48 hours. Bespoke 3D customizer commissions require 3–4 business days for custom bead balancing and tension resting.</p>
+        </div>
+        <div class="data-card">
+          <h6>✦ Domestic Shipping (India)</h6>
+          <p>We provide complimentary insured express courier transit across major Indian pin codes. Typical transit time is 3–6 business days post-dispatch.</p>
+        </div>
+        <div class="data-card">
+          <h6>✦ Delivery Verification</h6>
+          <p>Parcels are dispatched with trackable airway bill (AWB) numbers. Collectors must inspect outer parcel seals upon delivery and report any transit tampering immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 14-Day Returns & Custom Policy -->
+    <section class="policy-section" id="sec-returns">
+      <span class="sec-num">Section 08</span>
+      <h2 class="sec-title">14-Day Return Window, Sizing Adjustments & Custom Exclusions</h2>
+      <p>
+        We take pride in our physical gemstones and want you to be completely aligned with your piece:
+      </p>
+      <ul>
+        <li><strong>Standard Collection Pieces (14-Day Return Window):</strong> Standard, non-customized catalog pieces may be returned within 14 calendar days of confirmed delivery. The item must be unworn, undamaged, and returned in its complete original gift packaging with all cards and certificates intact.</li>
+        <li><strong>Bespoke 3D Customizer Creations (Custom Exclusions):</strong> Talismans configured specifically by the client (specifying unique bead arrangements, custom wrist measurements, or engraved spacers) are custom-crafted to individual order specifications. Under standard consumer protection principles, custom-commissioned pieces are non-returnable and non-refundable unless they arrive with documented structural defects or verified transit damage.</li>
+        <li><strong>Defective or Damaged In Transit:</strong> If a piece arrives damaged or exhibiting elastic failure within 48 hours of delivery, contact our concierge with photographic evidence. We will arrange a prompt complimentary exchange or repair.</li>
+        <li><strong>Restring & Resizing Service:</strong> Collectors seeking wrist size re-calibration post-delivery may access our studio restring service by contacting the concierge desk.</li>
+      </ul>
+    </section>
+
+    <!-- 9. Intellectual Property & RAW CANVAS -->
+    <section class="policy-section" id="sec-ip">
+      <span class="sec-num">Section 09</span>
+      <h2 class="sec-title">Intellectual Property & RAW CANVAS Engineering Attribution</h2>
+      <p>
+        All intellectual property rights associated with the website and products are strictly protected:
+      </p>
+      <ul>
+        <li><strong>Studio Content & Trademarks:</strong> The trademarks, brand logos (including `logo.png` and `logo-mark.png`), gemstone photography, product names, text copy, and brand aesthetics are the exclusive intellectual property of <em>Manifest Crystals of Life</em> and <em>Manifest Studios</em>.</li>
+        <li><strong>Technical Architecture & Design Credit:</strong> The digital experience, custom 3D customizer interface, coverflow visualizers, and front-end engineering were conceived and developed by <strong>RAW CANVAS</strong> (<a href="https://www.instagram.com/rawcanvas_creative" target="_blank" rel="noopener" style="color:var(--rose-deep); text-decoration:underline;">@rawcanvas_creative</a>). The "Developed by RAW CANVAS" attribution mark embedded within the platform footer is a protected attribution element and must not be altered, removed, or obfuscated.</li>
+        <li><strong>Prohibited Reproduction:</strong> You may not scrape, frame, reverse-engineer, duplicate, or commercially exploit any code, graphics, or proprietary 3D customizer mechanics without prior written authorization from Manifest Studios and RAW CANVAS.</li>
+      </ul>
+    </section>
+
+    <!-- 10. Limitation of Liability -->
+    <section class="policy-section" id="sec-liability">
+      <span class="sec-num">Section 10</span>
+      <h2 class="sec-title">Limitation of Liability & Warranty Disclaimers</h2>
+      <p>
+        To the maximum extent permitted under applicable law:
+      </p>
+      <ul>
+        <li>Manifest Crystals of Life provides its digital platform and products on an "as is" and "as available" basis without warranties of any kind, whether express or implied, including warranties of merchantability, fitness for a specific metaphysical purpose, or non-infringement.</li>
+        <li>Neither Manifest Studios nor RAW CANVAS shall be liable for any indirect, incidental, punitive, special, or consequential damages arising out of your access to the website, jewelry handling, allergic skin reactions to natural stones/metals, or inability to complete an order.</li>
+        <li>Our total cumulative liability for any claim arising out of your purchase shall not exceed the exact monetary purchase price actually paid by you for the specific item in dispute.</li>
+      </ul>
+    </section>
+
+    <!-- 11. Governing Law & Jurisdiction -->
+    <section class="policy-section" id="sec-law">
+      <span class="sec-num">Section 11</span>
+      <h2 class="sec-title">Governing Law & Dispute Resolution</h2>
+      <p>
+        These Terms & Conditions, along with any transactional agreements, shall be governed by and construed in accordance with the laws of the Republic of India, including the Information Technology Act 2000 and the Consumer Protection (E-Commerce) Rules 2020.
+      </p>
+      <p>
+        In the event of any controversy, claim, or dispute arising out of these Terms or your use of the sanctuary, the parties agree to first seek amicable resolution through good-faith direct discussions with our Concierge Desk. If unresolved within 30 days, the courts of competent jurisdiction located in India shall have exclusive jurisdiction over all proceedings.
+      </p>
+    </section>
+
+    <!-- 12. Studio Concierge -->
+    <section class="policy-section" id="sec-concierge">
+      <span class="sec-num">Section 12</span>
+      <h2 class="sec-title">Studio Concierge & Legal Notices</h2>
+      <p>
+        For inquiries regarding these Terms & Conditions, bespoke customizer specifications, resizing services, or routing:
+      </p>
+      <div class="callout-box">
+        <h5>Manifest Studios Concierge Desk</h5>
+        <p><strong>Studio:</strong> Manifest Crystals of Life / Manifest Studios</p>
+        <p><strong>Technology & Design:</strong> RAW CANVAS (<a href="https://www.instagram.com/rawcanvas_creative" target="_blank" rel="noopener" style="color:var(--rose-deep); text-decoration:underline;">@rawcanvas_creative</a>)</p>
+        <p><strong>Concierge Inquiries:</strong> <a href="mailto:concierge@manifestcrystals.com" style="color:var(--rose-deep); text-decoration:underline;">concierge@manifestcrystals.com</a></p>
+        <p><strong>Hours of Operation:</strong> Monday – Saturday, 10:00 AM – 7:00 PM IST</p>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <div>© 2026 Manifest Studios. All rights reserved. Natural gemstone craftsmanship.</div>
+        <div style="margin-top: 4px; font-size: 0.78rem;">
+          <a href="privacy-policy.html" style="color:var(--rose-deep); text-decoration:none; margin-right:12px;">Privacy Policy</a>
+          <a href="website 1.html" style="color:var(--rose-deep); text-decoration:none;">Back to Studio Sanctuary</a>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/rawcanvas_creative" class="raw-canvas-credit" target="_blank" rel="noopener" title="Visit RAW CANVAS on Instagram">
+          <span class="raw-canvas-label">Developed by</span>
+          <img src="raw-canvas-logo.png" alt="RAW CANVAS">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

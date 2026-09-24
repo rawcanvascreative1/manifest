@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Manifest Crystals of Life</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #FFF5F6;
+    --bg-gradient: linear-gradient(135deg, #FFF5F6 0%, #FFFFFF 50%, #FFF0F2 100%);
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-solid: #FFFFFF;
+    --white: #FFFFFF;
+    --rose-light: #F7D6DC;
+    --rose-accent: #D47A8F;
+    --rose-deep: #A85A6B;
+    --rose-dark: #6E333F;
+    --gold: #D4AF37;
+    --ink: #3C2429;
+    --ink-soft: #7A5C62;
+    --line: rgba(212, 122, 143, 0.16);
+    --line-glow: rgba(212, 122, 143, 0.28);
+    --shadow: 0 20px 40px -10px rgba(168, 86, 102, 0.12);
+    --shadow-soft: 0 8px 24px rgba(168, 86, 102, 0.06);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-base);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(168, 86, 102, 0.15));
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.25s ease;
+  }
+  .nav-link:hover {
+    color: var(--rose-deep);
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--surface-solid);
+    border: 1px solid var(--line-glow);
+    color: var(--rose-dark);
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-back:hover {
+    background: var(--rose-accent);
+    color: #fff;
+    border-color: var(--rose-accent);
+    transform: translateY(-1px);
+  }
+
+  /* Hero */
+  .policy-hero {
+    padding: 50px 0 35px;
+    text-align: center;
+    position: relative;
+  }
+  .policy-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .policy-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--rose-dark);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  .policy-meta {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-solid);
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+
+  /* Quick Nav Bar */
+  .toc-bar {
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 20px;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+  .toc-bar::-webkit-scrollbar { height: 4px; }
+  .toc-bar::-webkit-scrollbar-thumb { background: var(--rose-light); border-radius: 4px; }
+  .toc-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rose-dark);
+    flex-shrink: 0;
+  }
+  .toc-pill {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  .toc-pill:hover {
+    background: var(--rose-accent);
+    color: #fff;
+    border-color: var(--rose-accent);
+  }
+
+  /* Main Card */
+  .policy-card {
+    background: var(--surface-solid);
+    border-radius: 24px;
+    border: 1px solid var(--line-glow);
+    box-shadow: var(--shadow);
+    padding: 48px;
+    margin-bottom: 60px;
+  }
+
+  .policy-section {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+  }
+  .policy-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .sec-num {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--rose-accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .sec-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: var(--rose-dark);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .policy-section p {
+    color: var(--ink);
+    font-size: 0.96rem;
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+  .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+  .policy-section ul, .policy-section ol {
+    margin: 14px 0 16px 24px;
+    color: var(--ink);
+    font-size: 0.94rem;
+  }
+  .policy-section li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .policy-section strong {
+    color: var(--rose-dark);
+    font-weight: 600;
+  }
+
+  /* Callout box */
+  .callout-box {
+    background: linear-gradient(135deg, rgba(255, 245, 247, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-left: 4px solid var(--rose-accent);
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .callout-box h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--rose-dark);
+    margin-bottom: 6px;
+  }
+  .callout-box p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  /* Grid details */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .data-card {
+    background: var(--bg-base);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .data-card h6 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--rose-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .data-card p {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: #FFFFFF;
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    margin-top: auto;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-info {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .raw-canvas-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #FFF5F7;
+    border: 1px solid var(--line);
+    transition: all 0.25s ease;
+  }
+  .raw-canvas-credit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+  .raw-canvas-credit img {
+    height: 18px;
+    width: auto;
+  }
+  .raw-canvas-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .policy-title { font-size: 2.1rem; }
+    .policy-card { padding: 26px 20px; border-radius: 18px; }
+    .sec-title { font-size: 1.35rem; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="website 1.html" class="brand-group" title="Back to Manifest Sanctuary">
+        <img src="logo.png" alt="Manifest Crystals of Life" class="brand-logo">
+      </a>
+      <div class="nav-links">
+        <a href="terms-and-conditions.html" class="nav-link">Terms & Conditions</a>
+        <a href="website 1.html" class="btn-back">
+          <span>← Back to Studio Sanctuary</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Container -->
+<main class="wrap">
+  <!-- Hero -->
+  <section class="policy-hero">
+    <span class="policy-eyebrow">✦ Transparent Ritual Governance</span>
+    <h1 class="policy-title">Privacy Policy</h1>
+    <div class="policy-meta">
+      <span class="meta-badge">Effective: September 2026</span>
+      <span class="meta-badge">Jurisdiction: IT Act 2000 & DPDP Act (India) / Global Baseline</span>
+      <span class="meta-badge">Version 2.4</span>
+    </div>
+  </section>
+
+  <!-- Quick Nav -->
+  <nav class="toc-bar" aria-label="Privacy sections">
+    <span class="toc-label">Sections:</span>
+    <a href="#sec-overview" class="toc-pill">1. Overview</a>
+    <a href="#sec-collection" class="toc-pill">2. Data We Collect</a>
+    <a href="#sec-auth" class="toc-pill">3. Auth & Phone OTP</a>
+    <a href="#sec-payments" class="toc-pill">4. Payment & Gateway Security</a>
+    <a href="#sec-storage" class="toc-pill">5. Local Storage & Cookies</a>
+    <a href="#sec-usage" class="toc-pill">6. Purpose of Processing</a>
+    <a href="#sec-sharing" class="toc-pill">7. Third-Party Sharing</a>
+    <a href="#sec-retention" class="toc-pill">8. Data Retention</a>
+    <a href="#sec-rights" class="toc-pill">9. Your Privacy Rights</a>
+    <a href="#sec-safeguards" class="toc-pill">10. Security Safeguards</a>
+    <a href="#sec-children" class="toc-pill">11. Age Assurance</a>
+    <a href="#sec-contact" class="toc-pill">12. Grievance & Concierge</a>
+  </nav>
+
+  <!-- Card Body -->
+  <article class="policy-card">
+    
+    <!-- 1. Overview -->
+    <section class="policy-section" id="sec-overview">
+      <span class="sec-num">Section 01</span>
+      <h2 class="sec-title">Studio Commitment & Entity Architecture</h2>
+      <p>
+        At <strong>Manifest Crystals of Life</strong> (operating under <em>Manifest Studios</em>, engineered and co-designed by <strong>RAW CANVAS</strong>), we honor the sanctity of your digital presence with the same reverent attention to detail that guides our lapidary and hand-knotting craftsmanship. This Privacy Policy sets forth our practices regarding the collection, storage, encryption, and respectful use of personal information gathered when you navigate our boutique e-commerce sanctuary, configure bespoke gemstone talismans via our 3D customizer, authenticate an account, or initiate transactional purchases.
+      </p>
+      <p>
+        By accessing our website, creating an account via email, phone, or Google authentication, or interacting with our bespoke jewelry services, you acknowledge the terms outlined herein.
+      </p>
+      <div class="callout-box">
+        <h5>Commitment to Ethical Data Stewardship</h5>
+        <p>We do not sell, rent, monetize, or broker your personal information or metaphysical gemstone preferences to data aggregators or advertising networks. Your data exists solely to fulfill physical craftsmanship and curate your studio experience.</p>
+      </div>
+    </section>
+
+    <!-- 2. Data We Collect -->
+    <section class="policy-section" id="sec-collection">
+      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Categories of Information We Collect</h2>
+      <p>We collect personal information directly from you when you register an account, customize a bracelet, or complete checkout:</p>
+      
+      <div class="data-grid">
+        <div class="data-card">
+          <h6>✦ Identity & Profile Data</h6>
+          <p>Full legal name, display name, account creation timestamp, avatar credentials, and preferred intention stones (e.g., Rose Quartz, Amethyst, Citrine, Black Tourmaline).</p>
+        </div>
+        <div class="data-card">
+          <h6>✦ Contact & Delivery Data</h6>
+          <p>Verified email address (Gmail or custom domains), mobile telephone number with international dialing codes (+91, +1, +44, etc.), shipping destination, and billing address.</p>
+        </div>
+        <div class="data-card">
+          <h6>✦ Bespoke Customizer Data</h6>
+          <p>Wrist sizing specifications (Small 15-16cm, Medium 17-18cm, Large 19-20cm), custom 3D bead array sequences, gemstone material combinations, spacer choices, and personal energetic dedications.</p>
+        </div>
+        <div class="data-card">
+          <h6>✦ Transactional History</h6>
+          <p>Unique ritual order identifiers (e.g., <code>MANIFEST-XXXXXX</code>), timestamped itemized receipts, order statuses, tracking numbers, and total transaction values in Indian Rupees (₹).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Auth & Phone OTP -->
+    <section class="policy-section" id="sec-auth">
+      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Authentication & SMS One-Time Password (OTP) Verification</h2>
+      <p>
+        To ensure secure access and protect e-commerce purchasing pathways, Manifest implements a multi-channel authentication framework:
+      </p>
+      <ul>
+        <li><strong>Google OAuth Integration:</strong> When selecting "Continue with Google," we receive standard public profile parameters (verified email and display name). We never access your Google password, contacts, or personal cloud files.</li>
+        <li><strong>Direct Email & Password:</strong> Credentials created directly on the studio platform are stored with strict cryptographic hashing. We provide instant self-service ritual password recovery links sent exclusively to your registered inbox.</li>
+        <li><strong>Mobile Phone Authentication with 4-Digit OTP:</strong> When logging in via mobile device, a cryptographically generated 4-digit verification code is transmitted via telecom gateway to your mobile number. This code expires within a time-limited window and is used solely to authenticate session legitimacy and prevent unauthorized access.</li>
+      </ul>
+      <p>
+        Under no circumstances will studio representatives contact you demanding your confidential OTP or password.
+      </p>
+    </section>
+
+    <!-- 4. Payment & Gateway Security -->
+    <section class="policy-section" id="sec-payments">
+      <span class="sec-num">Section 04</span>
+      <h2 class="sec-title">Payment Architecture & PCI-DSS Safeguards</h2>
+      <p>
+        Your financial security is our highest operational priority. Manifest Crystals of Life operates in full compliance with the Payment Card Industry Data Security Standards (PCI-DSS):
+      </p>
+      <ul>
+        <li><strong>Credit & Debit Cards (Visa, Mastercard, American Express, RuPay):</strong> Card information is processed through secure, bank-grade tokenization tunnels. Manifest Studios <em>never</em> captures, logs, or stores raw 16-digit Primary Account Numbers (PAN) or Card Verification Values (CVV) on our servers or client browser storage.</li>
+        <li><strong>Unified Payments Interface (UPI) & Net Banking:</strong> Direct UPI intent requests (Google Pay, PhonePe, Paytm, BHIM) and Net Banking portals are mediated directly by authorized national payment aggregators. No bank account credentials or MPINs ever touch our infrastructure.</li>
+        <li><strong>Pricing & Currency:</strong> All transactions are billed in Indian Rupees (₹ INR), inclusive of applicable GST and handling disclosures as detailed at checkout.</li>
+      </ul>
+    </section>
+
+    <!-- 5. Local Storage & Cookies -->
+    <section class="policy-section" id="sec-storage">
+      <span class="sec-num">Section 05</span>
+      <h2 class="sec-title">Client-Side Storage (`localStorage`) & Functional Cookies</h2>
+      <p>
+        To deliver a seamless, stateful single-page experience without intrusive tracking scripts, our application utilizes browser <code>localStorage</code> for critical functional keys:
+      </p>
+      <div class="data-grid">
+        <div class="data-card">
+          <h6><code>manifest_user</code></h6>
+          <p>Retains current active session state, display name, verified authentication method, and membership tier so you remain logged in across studio visits.</p>
+        </div>
+        <div class="data-card">
+          <h6><code>manifest_cart</code></h6>
+          <p>Preserves your curated bracelet selections and custom 3D creations in your bag until checkout completion.</p>
+        </div>
+        <div class="data-card">
+          <h6><code>manifest_orders</code></h6>
+          <p>Stores your local historical ritual receipts and fulfillment numbers for rapid retrieval inside your Studio Profile overlay.</p>
+        </div>
+        <div class="data-card">
+          <h6><code>manifest_reg_*</code></h6>
+          <p>Caches registered account credentials locally for demo and offline persistence within your private browser environment.</p>
+        </div>
+      </div>
+      <p>
+        You have the autonomy to clear these local storage items at any time through your browser's Developer Tools or Clear Browsing Data utility. Logging out from your profile immediately clears the active session state.
+      </p>
+    </section>
+
+    <!-- 6. Purpose of Processing -->
+    <section class="policy-section" id="sec-usage">
+      <span class="sec-num">Section 06</span>
+      <h2 class="sec-title">Purposes for Processing Your Information</h2>
+      <p>We process collected data exclusively for legitimate operational and contractual obligations:</p>
+      <ol>
+        <li><strong>Bespoke Jewelry Fabrication:</strong> Enabling our artisans to calibrate custom bead counts, wrist sizes, and mineral selection according to your customizer blueprint.</li>
+        <li><strong>Order Fulfillment & Logistics:</strong> Generating packing slips, shipping labels, transit notifications, and doorstep delivery dispatch.</li>
+        <li><strong>Transactional Communication:</strong> Sending automated order confirmations, dispatch tracking, digital tax invoices, and verification OTPs.</li>
+        <li><strong>Platform Security & Fraud Prevention:</strong> Mitigating unauthorized card attempts, mitigating bot attacks, and enforcing account integrity.</li>
+        <li><strong>Client Sanctuary Concierge:</strong> Addressing returns, resizing inquiries, and gemstone care guidance submitted to our support team.</li>
+      </ol>
+    </section>
+
+    <!-- 7. Third-Party Sharing -->
+    <section class="policy-section" id="sec-sharing">
+      <span class="sec-num">Section 07</span>
+      <h2 class="sec-title">Third-Party Service Providers & Disclosures</h2>
+      <p>
+        We only disclose necessary tranches of data to trusted third-party partners bound by rigorous confidentiality agreements:
+      </p>
+      <ul>
+        <li><strong>Logistics & Courier Partners:</strong> Delivery couriers receive recipient name, delivery address, and contact telephone number to facilitate physical parcel handover.</li>
+        <li><strong>Payment Gateways & Banking Partners:</strong> Encrypted transaction values and tokenized handles are exchanged with certified payment aggregators to authenticate charges.</li>
+        <li><strong>Communications & SMS Gateways:</strong> Telecommunications relays receive phone numbers to deliver time-sensitive SMS OTP codes and order dispatch alerts.</li>
+        <li><strong>Legal & Statutory Compliance:</strong> We may disclose data if compelled by valid subpoena, court order, or applicable law enforcement mandate under the Information Technology Act 2000.</li>
+      </ul>
+      <p>
+        We do not share your information with advertising networks, behavioral tracking brokers, or third-party telemarketers.
+      </p>
+    </section>
+
+    <!-- 8. Data Retention -->
+    <section class="policy-section" id="sec-retention">
+      <span class="sec-num">Section 08</span>
+      <h2 class="sec-title">Data Retention & International Transfers</h2>
+      <p>
+        We retain personal information for as long as necessary to maintain your studio account, provide craftsmanship warranties, and comply with statutory tax and accounting retention requirements under Indian law (typically 7 years for financial records).
+      </p>
+      <p>
+        When you request account deletion, your identifying credentials will be expunged or anonymized from active operational databases, subject only to necessary auditing records required by financial regulations.
+      </p>
+    </section>
+
+    <!-- 9. Your Rights -->
+    <section class="policy-section" id="sec-rights">
+      <span class="sec-num">Section 09</span>
+      <h2 class="sec-title">Your Privacy Rights & User Autonomy</h2>
+      <p>
+        In accordance with the <strong>Digital Personal Data Protection (DPDP) Act 2023</strong> (India), and baseline global standards (including GDPR and CCPA where applicable), you possess the following rights:
+      </p>
+      <ul>
+        <li><strong>Right to Access:</strong> Inspect the personal data, linked accounts, and order history held in your profile.</li>
+        <li><strong>Right to Correction & Update:</strong> Modify your contact details, name, or stone preferences at any time via your Studio Ritual Profile.</li>
+        <li><strong>Right to Erasure:</strong> Request the definitive deletion of your profile, registered accounts, and associated customer records.</li>
+        <li><strong>Right to Withdraw Consent:</strong> Revoke consent for promotional notifications or voluntary profiling without affecting the lawfulness of prior processing.</li>
+        <li><strong>Right to Grievance Redressal:</strong> Submit a complaint regarding the processing of your personal data to our designated Grievance Officer.</li>
+      </ul>
+    </section>
+
+    <!-- 10. Security Safeguards -->
+    <section class="policy-section" id="sec-safeguards">
+      <span class="sec-num">Section 10</span>
+      <h2 class="sec-title">Security Practices & Safeguards</h2>
+      <p>
+        Manifest implements technical, physical, and administrative measures to protect your information against loss, theft, unauthorized alteration, or disclosure:
+      </p>
+      <ul>
+        <li><strong>Transport Layer Security:</strong> All client-to-server data transmission is shielded by 256-bit SSL/TLS end-to-end encryption.</li>
+        <li><strong>Restricted Administrative Access:</strong> Production systems and customer records are restricted to authorized personnel under least-privilege role protocols.</li>
+        <li><strong>Zero Raw Credential Exposure:</strong> Passwords and payment credentials are never stored in human-readable plain text.</li>
+      </ul>
+    </section>
+
+    <!-- 11. Children's Privacy -->
+    <section class="policy-section" id="sec-children">
+      <span class="sec-num">Section 11</span>
+      <h2 class="sec-title">Age Assurance & Minors</h2>
+      <p>
+        Our services are not directed to individuals under the age of 18 without parental consent. We do not knowingly collect personal information from children. If we discover that a minor under 18 has established an account without verified parental oversight, we will take prompt steps to terminate the profile and erase the data.
+      </p>
+    </section>
+
+    <!-- 12. Contact & Grievance -->
+    <section class="policy-section" id="sec-contact">
+      <span class="sec-num">Section 12</span>
+      <h2 class="sec-title">Grievance Officer & Studio Contact Details</h2>
+      <p>
+        In accordance with the Information Technology Act 2000 and rules made thereunder, as well as the Consumer Protection (E-Commerce) Rules 2020, the contact details of our Grievance Officer are:
+      </p>
+      <div class="callout-box">
+        <h5>Manifest Studios Grievance & Concierge Desk</h5>
+        <p><strong>Entity:</strong> Manifest Crystals of Life / Manifest Studios</p>
+        <p><strong>Design & Technology Partner:</strong> RAW CANVAS (<a href="https://www.instagram.com/rawcanvas_creative" target="_blank" rel="noopener" style="color:var(--rose-deep); text-decoration:underline;">@rawcanvas_creative</a>)</p>
+        <p><strong>Email Concierge:</strong> <a href="mailto:concierge@manifestcrystals.com" style="color:var(--rose-deep); text-decoration:underline;">concierge@manifestcrystals.com</a></p>
+        <p><strong>Grievance Officer:</strong> Head of Client Relations, Manifest Studios</p>
+        <p><strong>Response Timeline:</strong> Acknowledgement within 48 hours; resolution within 30 days of receipt.</p>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-info">
+        <div>© 2026 Manifest Studios. All rights reserved. Authentic physical gemstone craftsmanship.</div>
+        <div style="margin-top: 4px; font-size: 0.78rem;">
+          <a href="terms-and-conditions.html" style="color:var(--rose-deep); text-decoration:none; margin-right:12px;">Terms & Conditions</a>
+          <a href="website 1.html" style="color:var(--rose-deep); text-decoration:none;">Back to Studio Sanctuary</a>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.instagram.com/rawcanvas_creative" class="raw-canvas-credit" target="_blank" rel="noopener" title="Visit RAW CANVAS on Instagram">
+          <span class="raw-canvas-label">Developed by</span>
+          <img src="raw-canvas-logo.png" alt="RAW CANVAS">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
