@@ -544,21 +544,47 @@
 
   .mobile-nav-drawer {
     position: fixed;
-    top: 0; left: -300px;
-    width: 300px; height: 100%;
+    top: 0; left: -320px;
+    width: min(320px, 86vw); height: 100%;
     background: var(--surface-solid);
-    box-shadow: 10px 0 40px rgba(168, 86, 102, 0.08);
-    z-index: 995;
-    padding: 100px 40px 40px;
+    box-shadow: 10px 0 40px rgba(168, 86, 102, 0.14);
+    z-index: 1050;
+    padding: 24px 24px 40px;
     display: flex;
     flex-direction: column;
     transition: left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .mobile-nav-drawer.open { left: 0; }
   
-  .mobile-links { display: flex; flex-direction: column; gap: 24px; }
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .close-drawer-btn {
+    background: none;
+    border: none;
+    color: var(--rose-dark);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 0.8;
+    padding: 6px 10px;
+    border-radius: 50%;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  .close-drawer-btn:hover {
+    color: var(--rose-accent);
+    transform: rotate(90deg);
+  }
+  
+  .mobile-links { display: flex; flex-direction: column; gap: 20px; }
   .mobile-links a {
-    font-size: 1.05rem; font-weight: 500; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em;
+    font-size: 0.95rem; font-weight: 500; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em;
     transition: color 0.3s ease;
   }
   .mobile-links a:hover { color: var(--rose-deep); }
@@ -2865,9 +2891,9 @@
     flex: 1;
   }
 
-  /* VIEWPORT MEDIA QUERIES OVERHAUL */
+  /* VIEWPORT MEDIA QUERIES OVERHAUL - FULL MOBILE & TABLET SUITE */
 
-  /* Explicit Desktop & Laptop Rules - Ensures navbar never collapses on desktop */
+  /* Desktop and Wide Screens - Navbar links always visible */
   @media (min-width: 901px) {
     .navlinks {
       display: flex !important;
@@ -2878,16 +2904,19 @@
     .mobile-nav-drawer, .mobile-nav-overlay {
       display: none !important;
     }
+    .mobile-bottom-dock {
+      display: none !important;
+    }
   }
 
-  /* Compact Desktop / Laptop screens (901px - 1180px) */
+  /* Compact Desktop / Laptop Screens (901px - 1180px) */
   @media (max-width: 1180px) and (min-width: 901px) {
     .nav {
       padding: 12px 24px !important;
       gap: 14px !important;
     }
     .header-custom-btn {
-      display: none !important; /* "Customizer" is already in .navlinks, saving ~140px */
+      display: none !important;
     }
     .navlinks {
       gap: clamp(10px, 1.2vw, 18px) !important;
@@ -2898,14 +2927,15 @@
     }
   }
 
-  /* Large Tablet and iPad Pro */
+  /* Large Tablet & iPad Pro (<= 1024px) */
   @media (max-width: 1024px) {
-    .wrap { padding: 0 30px; }
-    .hero { gap: 40px; padding: 80px 40px 100px; }
-    .grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .wrap { padding: 0 28px; }
+    .hero { gap: 40px; padding: 70px 30px 90px; }
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .customizer-layout { gap: 40px; }
   }
 
-  /* Standard Tablet Portrait & Mobile (<= 900px) */
+  /* Standard Tablet Portrait (<= 900px) */
   @media (max-width: 900px) {
     .navlinks, .nav-cta .header-custom-btn { display: none !important; }
     .mobile-nav-toggle { display: flex !important; }
@@ -2914,41 +2944,41 @@
     .hero {
       grid-template-columns: 1fr;
       text-align: center;
-      padding: 60px 40px 90px;
-      gap: 50px;
+      padding: 50px 24px 80px;
+      gap: 40px;
     }
     .hero-copy {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .hero-copy h1 { font-size: clamp(2.6rem, 6vw, 3.8rem); }
-    .hero-copy p.lede { margin: 25px auto 0; text-align: center; }
+    .hero-copy h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); }
+    .hero-copy p.lede { margin: 20px auto 0; text-align: center; max-width: 600px; }
     .hero-actions { justify-content: center; }
-    .hero-stats { justify-content: center; margin-top: 50px; width: 100%; max-width: 500px; }
-    .hero-visual { width: 100%; max-width: 440px; margin: 0 auto; }
-    .hero-chip.c1 { left: -5%; }
-    .hero-chip.c2 { right: -3%; }
+    .hero-stats { justify-content: center; margin-top: 40px; width: 100%; max-width: 500px; }
+    .hero-visual { width: 100%; max-width: 400px; margin: 0 auto; position: relative; }
+    .hero-chip.c1 { left: 4px; }
+    .hero-chip.c2 { right: 4px; }
 
     .customizer-layout {
       grid-template-columns: 1fr;
-      gap: 50px;
+      gap: 40px;
     }
     .customizer-visual {
-      max-width: 440px;
+      max-width: 400px;
     }
 
-    .grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .earth-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .earth-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .earth-card:nth-child(3) { grid-column: span 2; aspect-ratio: 2/1; }
 
     .story-wrap {
       grid-template-columns: 1fr;
-      gap: 50px;
+      gap: 40px;
     }
     .story-img {
       order: 2;
-      max-width: 440px;
+      max-width: 420px;
       width: 100%;
       margin: 0 auto;
     }
@@ -2965,140 +2995,720 @@
 
     .foot-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 36px;
     }
   }
 
-  /* Mobile Landscape / Small Tablet */
+  /* =========================================================
+     MOBILE DEVICES & SMARTPHONES (<= 768px)
+     ========================================================= */
   @media (max-width: 768px) {
-    .wrap { padding: 0 24px; }
-    .nav { padding: 15px 24px; }
-    .section { padding: 80px 0; }
-    .section-head { margin-bottom: 50px; }
-    
-    .checkout-body {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      padding: 24px;
+    /* Page & Root Layout */
+    body {
+      padding-bottom: 84px !important; /* Reserve clearance for mobile bottom dock */
+      overflow-x: hidden;
     }
-    .order-summary-col {
-      border-right: none;
-      padding-right: 0;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 30px;
+    .wrap {
+      padding: 0 16px;
     }
-    .checkout-modal {
-      width: 100%;
-      height: 100%;
-      max-height: 100vh;
-      border-radius: 0;
+    .section {
+      padding: 60px 0;
     }
-  }
+    .section-head {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+    }
+    .section-head p {
+      font-size: 0.95rem;
+      margin-top: 14px;
+      line-height: 1.6;
+    }
 
-  /* Mobile Portrait (iPhone SE, Android) */
-  @media (max-width: 580px) {
-    .logo-mark-img { height: 34px; }
-    .logo-title { font-size: 1.25rem; }
-    .logo-tagline { display: none; }
-    .hero-copy h1 { font-size: 2.3rem; }
+    /* Mobile Header */
+    .nav {
+      padding: 10px 16px !important;
+      height: 60px;
+    }
+    .logo-mark-img {
+      height: 34px;
+    }
+    .logo-title {
+      font-size: 1.25rem;
+    }
+    .logo-tagline {
+      display: none;
+    }
+    .nav-cta {
+      gap: 8px;
+    }
+    .cart-icon {
+      width: 36px;
+      height: 36px;
+    }
+    .user-profile-badge {
+      padding: 4px 8px;
+      gap: 6px;
+    }
+    .user-profile-badge .user-display-name {
+      display: none; /* Hide name text in compact mobile header */
+    }
+    .user-profile-badge .user-logout-btn {
+      display: none; /* Handled in profile modal & mobile drawer */
+    }
+    .auth-nav-btn {
+      padding: 6px 10px;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      justify-content: center;
+    }
+    .auth-nav-btn span {
+      display: none;
+    }
+
+    /* Mobile Hero Section */
+    .hero {
+      padding: 36px 16px 54px !important;
+      gap: 32px !important;
+    }
+    .hero-copy h1 {
+      font-size: clamp(2.1rem, 8vw, 2.9rem) !important;
+      line-height: 1.16 !important;
+    }
+    .hero-copy p.lede {
+      font-size: 0.94rem !important;
+      line-height: 1.6 !important;
+      margin-top: 14px !important;
+      max-width: 95%;
+    }
     .hero-actions {
       flex-direction: column;
       width: 100%;
-      gap: 12px;
+      max-width: 320px;
+      margin: 22px auto 0;
+      gap: 10px;
     }
     .hero-actions .btn {
       width: 100%;
+      text-align: center;
+      padding: 13px 20px;
+      font-size: 0.82rem;
     }
     .hero-stats {
-      gap: 20px;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 360px;
+      margin: 28px auto 0 !important;
+      padding: 14px 10px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-stats > div {
+      text-align: center;
+      flex: 1;
+    }
+    .hero-stats > div:not(:last-child) {
+      border-right: 1px solid var(--line);
     }
     .hero-stats div h3 {
-      font-size: 1.6rem;
+      font-size: 1.45rem !important;
+      color: var(--rose-dark);
+      font-family: 'Fraunces', serif;
+    }
+    .hero-stats div span {
+      font-size: 0.65rem !important;
+      color: var(--rose-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero-visual {
+      max-width: 310px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-frame {
+      border-radius: 22px;
     }
     .hero-chip {
-      padding: 8px 12px;
-      gap: 10px;
+      padding: 6px 12px !important;
+      gap: 8px !important;
+      border-radius: 14px !important;
     }
     .hero-chip .swatch {
-      width: 32px; height: 32px;
+      width: 30px !important;
+      height: 30px !important;
     }
     .hero-chip strong {
-      font-size: 0.8rem;
+      font-size: 0.78rem !important;
     }
     .hero-chip span {
-      font-size: 0.65rem;
+      font-size: 0.62rem !important;
+    }
+    .hero-chip.c1 {
+      top: 6% !important;
+      left: 6px !important;
+    }
+    .hero-chip.c2 {
+      bottom: 6% !important;
+      right: 6px !important;
     }
 
-    .grid { grid-template-columns: 1fr; gap: 20px; }
-    
-    .earth-grid { grid-template-columns: 1fr; }
-    .earth-card:nth-child(3) { grid-column: span 1; aspect-ratio: 3/4; }
+    /* Materials Specifications - Smooth Horizontal Swipe Ribbon */
+    .palette-row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 4px 18px;
+      gap: 12px;
+      scrollbar-width: none;
+    }
+    .palette-row::-webkit-scrollbar {
+      display: none;
+    }
+    .palette-chip {
+      scroll-snap-align: center;
+      flex: 0 0 108px;
+      min-width: 108px;
+      padding: 16px 12px;
+      gap: 10px;
+      border-radius: 16px;
+    }
+    .palette-dot {
+      width: 36px;
+      height: 36px;
+    }
+    .palette-chip span {
+      font-size: 0.78rem;
+    }
+    .palette-hint {
+      font-size: 0.76rem;
+      margin-top: 10px;
+    }
 
+    /* 3D Customizer Studio on Mobile */
+    .customizer-visual {
+      max-width: 320px;
+      aspect-ratio: 1/1;
+      touch-action: pan-y;
+      cursor: grab;
+      user-select: none;
+    }
+    .bead-element {
+      width: 30px;
+      height: 30px;
+    }
+    .customizer-controls {
+      gap: 8px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .ctrl-btn {
+      padding: 8px 14px;
+      font-size: 0.72rem;
+    }
     .customizer-panel {
-      padding: 24px;
+      padding: 22px 18px;
+      border-radius: 20px;
+    }
+    /* Compact horizontal 3-segmented wrist size picker */
+    .size-picker {
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+    }
+    .size-btn {
+      flex: 1;
+      padding: 9px 4px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+    }
+    .size-btn small {
+      font-size: 0.62rem;
+      white-space: nowrap;
     }
     .customizer-palette {
       grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
-    .size-picker {
-      flex-direction: column;
-      gap: 10px;
+    .palette-item-btn {
+      padding: 8px 4px;
+      border-radius: 10px;
+      gap: 6px;
+    }
+    .palette-item-btn .mini-dot {
+      width: 22px;
+      height: 22px;
+    }
+    .palette-item-btn span {
+      font-size: 0.68rem;
     }
     .customizer-checkout {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
+      align-items: stretch;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .custom-price-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .customizer-checkout .btn {
       width: 100%;
+      padding: 13px;
     }
 
-    .gallery-slide {
-      width: 240px;
-      height: 320px;
+    /* Predefined Products Collection - Luxury 2-Column Grid on Mobile */
+    .grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
     }
+    .card {
+      border-radius: 16px;
+    }
+    .card-body {
+      padding: 12px 10px !important;
+    }
+    .stone-name {
+      font-size: 0.95rem !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .meaning {
+      font-size: 0.72rem !important;
+      line-height: 1.35 !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 8px !important;
+      height: 2.7em;
+    }
+    .card-foot {
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    .card-foot .price {
+      font-size: 0.98rem !important;
+    }
+    .add-btn {
+      width: 32px !important;
+      height: 32px !important;
+    }
+    .card-fav {
+      top: 8px; right: 8px;
+      width: 30px; height: 30px;
+    }
+    .card-fav svg {
+      width: 14px; height: 14px;
+    }
+    .card-tag {
+      top: 8px; left: 8px;
+      padding: 3px 8px;
+      font-size: 0.55rem;
+    }
+
+    /* Earth Origins Base Geometries */
+    .earth-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+    .earth-card {
+      aspect-ratio: 16/10 !important;
+      border-radius: 18px !important;
+    }
+    .earth-card:nth-child(3) {
+      grid-column: span 1 !important;
+    }
+    .earth-overlay {
+      padding: 20px 18px !important;
+    }
+    .earth-overlay h4 {
+      font-size: 1.15rem !important;
+    }
+    .earth-overlay p {
+      font-size: 0.82rem !important;
+      line-height: 1.4 !important;
+    }
+
+    /* Studio Album 3D Coverflow Slider */
     .gallery-3d-container {
-      height: 360px;
+      height: 350px !important;
+      margin: 28px auto 0 !important;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+    .gallery-slide {
+      width: min(250px, 72vw) !important;
+      height: 310px !important;
+      border-radius: 20px !important;
     }
     .slide-caption {
-      font-size: 1.1rem;
-      padding: 16px;
+      font-size: 1.02rem !important;
+      padding: 14px !important;
+    }
+    .gallery-btn {
+      width: 44px !important;
+      height: 44px !important;
     }
 
-    .foot-grid {
+    /* Story Blueprint */
+    .story-wrap {
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 32px;
+    }
+    .story-img {
+      order: 2;
+      max-width: 340px;
+      border-radius: 20px;
+    }
+    .story-copy h2 {
+      font-size: 1.85rem;
+    }
+    .story-list > div {
+      gap: 14px;
+    }
+    .story-num {
+      font-size: 1.4rem;
+    }
+
+    /* Footer */
+    .foot-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+      text-align: center;
+    }
+    .foot-logo-wrap {
+      justify-content: center;
+      display: flex;
+    }
+    .foot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .foot-col a, .foot-col button {
+      text-align: center !important;
     }
     .foot-bottom {
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       text-align: center;
       align-items: center;
-      margin-top: 50px;
+      margin-top: 36px;
+      padding-top: 24px;
     }
 
+    /* Slide-out Cart Drawer Mobile View */
     .cart-drawer {
-      width: 100%;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    .cart-drawer-header {
+      padding: 16px 20px !important;
+    }
+    .cart-items {
+      padding: 14px 18px !important;
+    }
+    .cart-footer {
+      padding: 16px 20px 24px !important;
     }
 
-    .auth-modal {
-      border-radius: 20px;
+    /* Secure Checkout Modal */
+    .checkout-modal {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+      display: flex;
+      flex-direction: column;
     }
-    .auth-header, .auth-body {
-      padding-left: 18px;
-      padding-right: 18px;
+    .checkout-header {
+      padding: 14px 18px !important;
+      flex-shrink: 0;
+    }
+    .checkout-body {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+      padding: 16px 16px 90px !important;
+      overflow-y: auto !important;
+    }
+    .order-summary-col {
+      border-right: none !important;
+      padding-right: 0 !important;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+    }
+    .virtual-card-wrapper {
+      max-width: 300px !important;
+      height: 175px !important;
+      margin-bottom: 20px !important;
+    }
+    .card-face {
+      padding: 16px !important;
+    }
+    .card-chip {
+      width: 38px; height: 28px;
+    }
+    .card-number-display {
+      font-size: 1.05rem !important;
+    }
+    .payment-form-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 10px !important;
+    }
+    .form-input {
+      padding: 10px 12px !important;
+      font-size: 0.82rem !important;
+    }
+
+    /* Auth & Profile Modals - Mobile Bottom Sheets */
+    .auth-overlay, .profile-overlay {
+      padding: 0 !important;
+      align-items: flex-end !important;
+    }
+    .auth-modal, .profile-modal {
+      border-radius: 24px 24px 0 0 !important;
+      max-height: 92vh !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .auth-header, .profile-header {
+      padding: 16px 20px !important;
+    }
+    .auth-body, .profile-body {
+      padding: 16px 18px 30px !important;
     }
     .auth-tabs {
-      padding-left: 18px;
-      padding-right: 18px;
+      padding: 10px 18px 0 !important;
     }
     .auth-banner {
-      margin-left: 18px;
-      margin-right: 18px;
+      margin-left: 18px !important;
+      margin-right: 18px !important;
+      padding: 10px 12px !important;
     }
-    .user-display-name {
-      max-width: 65px;
+    .auth-banner-text {
+      font-size: 0.78rem !important;
     }
+    .google-login-btn {
+      padding: 12px 16px !important;
+      font-size: 0.88rem !important;
+    }
+    .profile-hero-card {
+      padding: 14px !important;
+      margin-bottom: 16px !important;
+    }
+    .profile-info-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 8px !important;
+      margin-bottom: 20px !important;
+    }
+    .profile-info-tile {
+      padding: 10px 12px !important;
+    }
+    .profile-tile-label {
+      font-size: 0.65rem !important;
+    }
+    .profile-tile-value {
+      font-size: 0.8rem !important;
+    }
+    .profile-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .profile-actions .btn {
+      width: 100%;
+    }
+  }
+
+  /* Compact Smartphones (<= 480px) */
+  @media (max-width: 480px) {
+    .nav {
+      padding: 8px 12px !important;
+    }
+    .logo-mark-img {
+      height: 30px;
+    }
+    .logo-title {
+      font-size: 1.15rem;
+    }
+    .hero-copy h1 {
+      font-size: 2.1rem !important;
+    }
+    .virtual-card-wrapper {
+      max-width: 270px !important;
+      height: 158px !important;
+    }
+    .card-face {
+      padding: 12px !important;
+    }
+    .card-number-display {
+      font-size: 0.92rem !important;
+      letter-spacing: 0.06em !important;
+    }
+    .card-holder-display, .card-expiry-display {
+      font-size: 0.68rem !important;
+    }
+    .bead-element {
+      width: 26px !important;
+      height: 26px !important;
+    }
+    .otp-digit-input {
+      width: 42px !important;
+      height: 46px !important;
+      font-size: 1.2rem !important;
+    }
+  }
+
+  /* Ultra-narrow devices (<= 340px) */
+  @media (max-width: 340px) {
+    .grid {
+      grid-template-columns: 1fr !important;
+    }
+    .hero-stats {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-stats > div:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+  }
+
+  /* Mobile Floating Bottom Quick Dock (App-Style Bar) */
+  .mobile-bottom-dock {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--line-glow);
+    border-radius: 22px;
+    box-shadow: 0 12px 36px rgba(168, 86, 102, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
+    z-index: 950;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 4px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  @supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .mobile-bottom-dock {
+      bottom: max(10px, env(safe-area-inset-bottom));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mobile-bottom-dock {
+      display: flex !important;
+    }
+  }
+
+  .dock-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    flex: 1;
+    max-width: 68px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dock-item span {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-family: 'Jost', sans-serif;
+    transition: color 0.2s ease;
+  }
+
+  .dock-item svg {
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), stroke 0.25s ease;
+  }
+
+  .dock-item:hover, .dock-item.active {
+    color: var(--rose-deep);
+  }
+
+  .dock-item:hover svg, .dock-item.active svg {
+    transform: translateY(-2px);
+    stroke: var(--rose-deep);
+  }
+
+  .dock-custom-highlight {
+    position: relative;
+    top: -7px;
+  }
+
+  .dock-gem-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-accent), var(--rose-deep));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(212, 122, 143, 0.45);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .dock-custom-highlight:hover .dock-gem-icon, .dock-custom-highlight.active .dock-gem-icon {
+    transform: scale(1.1) rotate(12deg);
+  }
+
+  .dock-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dock-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: var(--rose-accent);
+    color: #FFFFFF;
+    font-size: 0.58rem;
+    font-weight: 600;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #FFFFFF;
   }
 
   /* =========================================================
@@ -3462,12 +4072,15 @@
 <!-- Mobile Navigation Links Drawer -->
 <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 <div class="mobile-nav-drawer" id="mobileNavDrawer">
-  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--line);">
-    <img src="logo-mark.png" alt="Manifest Crystals of Life" style="height: 38px; width: auto; filter: drop-shadow(0 2px 6px rgba(138, 75, 175, 0.2));">
-    <div style="display: flex; flex-direction: column;">
-      <span style="font-family: 'Fraunces', serif; font-size: 1.35rem; color: var(--rose-dark); line-height: 1;">manifest</span>
-      <span style="font-family: 'Jost', sans-serif; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-deep); font-weight: 500; margin-top: 2px;">crystals of life</span>
+  <div class="mobile-drawer-header">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="logo-mark.png" alt="Manifest Crystals of Life" style="height: 36px; width: auto; filter: drop-shadow(0 2px 6px rgba(138, 75, 175, 0.2));">
+      <div style="display: flex; flex-direction: column;">
+        <span style="font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--rose-dark); line-height: 1;">manifest</span>
+        <span style="font-family: 'Jost', sans-serif; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-deep); font-weight: 500; margin-top: 2px;">crystals of life</span>
+      </div>
     </div>
+    <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close navigation drawer">&times;</button>
   </div>
   <nav class="mobile-links">
     <a href="#shop">Collection</a>
@@ -3476,8 +4089,8 @@
     <a href="#gallery">Studio Gallery</a>
     <a href="#earth">Origins</a>
     <a href="#story">Studio</a>
-    <div id="mobileAuthContainer" style="margin-top:15px;"></div>
-    <a href="#customizer" class="btn btn-primary" style="margin-top:12px; width:100%;">Build Custom</a>
+    <div id="mobileAuthContainer" style="margin-top:12px;"></div>
+    <a href="#customizer" class="btn btn-primary" style="margin-top:10px; width:100%;">Build Custom</a>
   </nav>
 </div>
 
@@ -3772,6 +4385,37 @@
     </div>
   </div>
 </footer>
+
+<!-- Mobile Floating Bottom Quick Dock (App-Style Navigation) -->
+<nav class="mobile-bottom-dock" id="mobileBottomDock" aria-label="Mobile Navigation Dock">
+  <button class="dock-item active" id="dockHomeBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Sanctuary Home">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    <span>Sanctuary</span>
+  </button>
+  <button class="dock-item" id="dockShopBtn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" aria-label="Collection">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+    <span>Series</span>
+  </button>
+  <button class="dock-item dock-custom-highlight" id="dockCustomizerBtn" onclick="document.getElementById('customizer').scrollIntoView({behavior:'smooth'})" aria-label="Studio Customizer">
+    <div class="dock-gem-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="12 8 8 12 12 16 16 12 12 8"></polygon></svg>
+    </div>
+    <span>3D Studio</span>
+  </button>
+  <button class="dock-item" id="dockCartBtn" onclick="document.getElementById('cartToggle').click()" aria-label="Ritual Cart">
+    <div class="dock-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+      <span class="dock-badge" id="dockCartBadge">0</span>
+    </div>
+    <span>Cart</span>
+  </button>
+  <button class="dock-item" id="dockAccountBtn" onclick="handleDockAccountClick()" aria-label="Ritual Profile">
+    <div class="dock-icon-wrap" id="dockAccountAvatarWrap">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    </div>
+    <span id="dockAccountLabel">Account</span>
+  </button>
+</nav>
 
 <!-- Slide-out Cart Drawer -->
 <div class="cart-overlay" id="cartOverlay"></div>
@@ -4591,6 +5235,7 @@
   const mobileNavToggle = document.getElementById('mobileNavToggle');
   const mobileNavDrawer = document.getElementById('mobileNavDrawer');
   const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
   const mobileLinks = document.querySelectorAll('.mobile-links a');
 
   function toggleMobileNav() {
@@ -4602,6 +5247,9 @@
   if (mobileNavToggle) {
     mobileNavToggle.addEventListener('click', toggleMobileNav);
     mobileNavOverlay.addEventListener('click', toggleMobileNav);
+    if (closeDrawerBtn) {
+      closeDrawerBtn.addEventListener('click', toggleMobileNav);
+    }
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileNavToggle.classList.remove('open');
@@ -4618,6 +5266,43 @@
       }
     });
   }
+
+  // Mobile Bottom Dock Account Click Handler
+  function handleDockAccountClick() {
+    if (currentUser) {
+      openProfileModal();
+    } else {
+      openAuthModal({ message: '✦ Welcome to Manifest Studios. Sign in to view your orders & ritual access.' });
+    }
+  }
+
+  // Mobile Bottom Dock Active State on Scroll
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const shopSec = document.getElementById('shop');
+    const customizerSec = document.getElementById('customizer');
+    
+    const dockHome = document.getElementById('dockHomeBtn');
+    const dockShop = document.getElementById('dockShopBtn');
+    const dockCustom = document.getElementById('dockCustomizerBtn');
+    
+    if (!dockHome || !dockShop || !dockCustom) return;
+    
+    const shopTop = shopSec ? (shopSec.offsetTop - 250) : 99999;
+    const customTop = customizerSec ? (customizerSec.offsetTop - 250) : 99999;
+    
+    dockHome.classList.remove('active');
+    dockShop.classList.remove('active');
+    dockCustom.classList.remove('active');
+    
+    if (scrollY >= customTop && scrollY < (customTop + (customizerSec ? customizerSec.offsetHeight : 0))) {
+      dockCustom.classList.add('active');
+    } else if (scrollY >= shopTop) {
+      dockShop.classList.add('active');
+    } else {
+      dockHome.classList.add('active');
+    }
+  }, { passive: true });
 
   // 3D Card Hover Tilts (Predefined Products & Hero Image Frame)
   function apply3dCardTilt(element, tiltIntensity = 8) {
@@ -5023,6 +5708,19 @@
         checkoutBtn.style.display = 'none';
       }
     }
+
+    // Update Mobile Bottom Dock Profile Button
+    const dockAccountAvatarWrap = document.getElementById('dockAccountAvatarWrap');
+    const dockAccountLabel = document.getElementById('dockAccountLabel');
+    if (dockAccountAvatarWrap && dockAccountLabel) {
+      if (currentUser) {
+        dockAccountAvatarWrap.innerHTML = `<span class="user-avatar-dot" style="width:20px; height:20px; font-size:0.62rem;">${currentUser.name.charAt(0).toUpperCase()}</span>`;
+        dockAccountLabel.textContent = currentUser.name.split(' ')[0];
+      } else {
+        dockAccountAvatarWrap.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+        dockAccountLabel.textContent = "Account";
+      }
+    }
   }
 
   function handleLoginSuccess(user) {
@@ -5218,6 +5916,8 @@
 
     cartTotalSum.textContent = `₹${total.toLocaleString('en-IN')}`;
     cartBadgeCount.textContent = count;
+    const dockCartBadge = document.getElementById('dockCartBadge');
+    if (dockCartBadge) dockCartBadge.textContent = count;
   }
 
   // Predefined Collection Section Logic
@@ -5488,6 +6188,7 @@
     const rx = containerRect.width * 0.32;
     const ry = containerRect.width * 0.32;
     const tilt = 1.05;
+    const beadHalfSize = containerRect.width < 380 ? 13 : (containerRect.width < 500 ? 15 : 18);
 
     beads.forEach((bead, idx) => {
       const theta = (idx / customBeadCount) * 2 * Math.PI + customRotationAngle;
@@ -5499,7 +6200,7 @@
       const scale = 0.85 + (pz / ry) * 0.22;
       const zIndex = Math.round(pz + 500);
 
-      bead.style.transform = `translate3d(${cx + px - 18}px, ${cy + py - 18}px, ${pz}px) scale(${scale})`;
+      bead.style.transform = `translate3d(${cx + px - beadHalfSize}px, ${cy + py - beadHalfSize}px, ${pz}px) scale(${scale})`;
       bead.style.zIndex = zIndex;
     });
 
@@ -5527,6 +6228,52 @@
     render3dBracelet();
     updateCustomizerSpecs();
   });
+
+  // Touch Drag Rotation on 3D Customizer for Mobile & Mouse Drag for Desktop
+  const customizerVisual = document.getElementById('customizerVisual');
+  if (customizerVisual) {
+    let touchStartX = 0;
+    let isTouching = false;
+
+    customizerVisual.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        isTouching = true;
+      }
+    }, { passive: true });
+
+    customizerVisual.addEventListener('touchmove', (e) => {
+      if (!isTouching || e.touches.length !== 1) return;
+      const currentX = e.touches[0].clientX;
+      const deltaX = currentX - touchStartX;
+      customRotationAngle += deltaX * 0.015;
+      touchStartX = currentX;
+    }, { passive: true });
+
+    customizerVisual.addEventListener('touchend', () => {
+      isTouching = false;
+    }, { passive: true });
+
+    let isMouseDown = false;
+    let mouseStartX = 0;
+    customizerVisual.addEventListener('mousedown', (e) => {
+      isMouseDown = true;
+      mouseStartX = e.clientX;
+      customizerVisual.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isMouseDown) return;
+      const deltaX = e.clientX - mouseStartX;
+      customRotationAngle += deltaX * 0.01;
+      mouseStartX = e.clientX;
+    });
+    window.addEventListener('mouseup', () => {
+      if (isMouseDown) {
+        isMouseDown = false;
+        if (customizerVisual) customizerVisual.style.cursor = 'grab';
+      }
+    });
+  }
 
   addCustomToCartBtn.addEventListener('click', () => {
     const sizeMap = { 16: "Small (6.5\")", 18: "Medium (7.25\")", 20: "Large (8.0\")" };
